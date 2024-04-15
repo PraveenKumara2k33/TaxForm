@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container" id="box">
+    <form class="row g-3 needs-validation" novalidate >
+      <div class="col-md-12">
+          <label for="validationCustom01" class="form-label">Enter gross annual income 
+            <span
+              data-bs-toggle="tooltip" data-bs-placement="top"
+              data-bs-custom-class="custom-tooltip"
+              data-bs-title="Gross annual income is your total salary in
+              a year before any deductions">
+              <i class="bi bi-question-circle"></i>
+            </span>
+          </label>
+          <div class="form-group">
+            <label for="validationCustom01">Gross Annual Income</label>
+            <div class="position-relative">
+              <input type="number" placeholder="Enter gross annual income" 
+              class="form-control pl-5" id="validationCustom01">
+              <i class="bi bi-exclamation-circle position-absolute top-50 translate-middle-y d-none" 
+                style="right: 10px;" 
+                id="exclamationIcon"
+                data-bs-toggle="tooltip" 
+                data-bs-placement="top"
+                data-bs-custom-class="custom-tooltip"
+                data-bs-title="Please enter a number">
+              </i>
+            </div>
+          </div>                                              
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom02" class="form-label">Enter extra income 
+          <span
+            data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Extra annual income is your total money in 
+            a year before any deductions">
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </label>
+        <input 
+          type="number" placeholder="Enter extra income"  
+          class="form-control" id="validationCustom02">
+      </div>
+      <div class="d-grid">
+        <label for="validationCustom03" class="form-label">Enter age group 
+          <span
+            data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Select Right Age">
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </label>
+          <div class="dropdown">
+            <select class="form-select" id="validationCustom03" onchange="updateInput(this.value)">
+                <option value="">Select age group</option>
+                <option value="Below 40 age">Below 40 age</option>
+                <option value="Over 40 but Under 60 Age">Over 40 but Under 60 Age</option>
+                <option value="Above 60 Age">Above 60 Age</option>
+            </select>
+          </div>      
+      </div>
+      <div class="col-md-12">
+        <label for="validationCustom04" class="form-label">Enter total applicable deductions 
+          <span
+            data-bs-toggle="tooltip" data-bs-placement="top"
+            data-bs-custom-class="custom-tooltip"
+            data-bs-title="Total applicable deductions">
+            <i class="bi bi-question-circle"></i>
+          </span>
+        </label>
+        <input 
+          type="number" placeholder="Add total applicable deductions "  
+          class="form-control" id="validationCustom04">
+      </div>
+      <div class="col-12">
+        <!-- Button trigger modal -->
+          <button type="button" onclick="getValue()" class="btn btn-primary" id="openModalButton">
+            Submit form
+          </button>
+          <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" 
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl" >
+                <div class="modal-content" id="modal">
+                <div class="modal-body text-center">
+                    <h2>Your Overall income be</h2>
+                    <h2 id="overallIncome"></h2>
+                    <h6>after tax deductions</h6>
+                    <h2 id="taxAmount"></h2>
+                    <br>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+            </div>
+      </div>
+    </form>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+</body>
+</html>
